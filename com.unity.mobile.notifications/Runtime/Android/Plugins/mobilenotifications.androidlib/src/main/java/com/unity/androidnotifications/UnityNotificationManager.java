@@ -101,19 +101,6 @@ public class UnityNotificationManager extends BroadcastReceiver {
 
         Bundle metaData = getAppMetadata();
 
-        Boolean rescheduleOnRestart = false;
-        if (metaData != null)
-            rescheduleOnRestart = metaData.getBoolean("reschedule_notifications_on_restart", false);
-
-        if (rescheduleOnRestart) {
-            ComponentName receiver = new ComponentName(mContext, UnityNotificationRestartOnBootReceiver.class);
-            PackageManager pm = mContext.getPackageManager();
-
-            pm.setComponentEnabledSetting(receiver,
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-                PackageManager.DONT_KILL_APP);
-        }
-
         mOpenActivity = UnityNotificationUtilities.getOpenAppActivity(mContext);
         if (mOpenActivity == null)
             throw new RuntimeException("Failed to determine Activity to be opened when tapping notification");
@@ -830,7 +817,7 @@ public class UnityNotificationManager extends BroadcastReceiver {
         if (icon == null || icon.length() == 0)
             return null;
         if (icon.charAt(0) == '/') {
-            BitmapFactory.decodeFile(icon);
+            return BitmapFactory.decodeFile(icon);
         }
 
         Object ico = getIconForUri(icon);

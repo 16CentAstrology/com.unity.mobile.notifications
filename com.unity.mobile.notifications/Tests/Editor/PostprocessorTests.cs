@@ -54,6 +54,9 @@ namespace Unity.Notifications.Tests
         }
 
 #if UNITY_ANDROID
+#if UNITY_6000_0_OR_NEWER
+// Use AndroidProjectFilesModifier instead
+#else
         [Test]
         public void AppendMetadataToManifest_WhenSameValue_Works()
         {
@@ -158,7 +161,7 @@ namespace Unity.Notifications.Tests
             string sourceXmlContent = GetSourceXml(null, null);
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.LoadXml(sourceXmlContent);
-            var settings = new AndroidNotificationPostProcessor.ManifestSettings()
+            var settings = new ManifestSettings()
             {
                 ExactAlarm = AndroidExactSchedulingOption.ExactWhenAvailable | flag,
             };
@@ -192,7 +195,7 @@ namespace Unity.Notifications.Tests
             string sourceXmlContent = GetSourceXml(null, null);
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.LoadXml(sourceXmlContent);
-            var settings = new AndroidNotificationPostProcessor.ManifestSettings()
+            var settings = new ManifestSettings()
             {
                 // AndroidExactSchedulingOption.ExactWhenAvailable absent, so this one is ignored
                 ExactAlarm = AndroidExactSchedulingOption.AddScheduleExactPermission,
@@ -204,29 +207,7 @@ namespace Unity.Notifications.Tests
             Assert.IsFalse(xmlDoc.InnerXml.Contains(permission));
         }
 
-        static readonly string[] kProguardContents = new[]
-        {
-            "-keep class bitter.jnibridge.* { *; }",
-            "-keep class com.unity3d.player.* { *; }",
-            "-keep class org.fmod.* { *; }",
-        };
-
-        [Test]
-        public void InjectProguard_WhenMissing_AddsNotifications()
-        {
-            string[] result = kProguardContents;
-            bool ret = AndroidNotificationPostProcessor.InjectProguard(ref result);
-
-            Assert.IsTrue(ret);
-            Assert.IsNotNull(result);
-            Assert.IsTrue(result[result.Length - 2].Contains("com.unity.androidnotifications.UnityNotificationManager"));
-            Assert.IsTrue(result[result.Length - 1].Contains("com.unity.androidnotifications.NotificationCallback"));
-
-            // try again, now should not modify
-            ret = AndroidNotificationPostProcessor.InjectProguard(ref result);
-            Assert.IsFalse(ret);
-        }
-
+#endif
 #endif
     }
 }

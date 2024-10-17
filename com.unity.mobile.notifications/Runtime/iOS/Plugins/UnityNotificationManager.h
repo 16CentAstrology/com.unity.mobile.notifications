@@ -10,8 +10,6 @@
 #import <UserNotifications/UserNotifications.h>
 #import "UnityNotificationData.h"
 
-#define SYSTEM_VERSION_10_OR_ABOVE  ([[[UIDevice currentDevice] systemVersion] compare:@"10.0" options:NSNumericSearch] != NSOrderedAscending)
-
 @interface UnityNotificationManager : NSObject<UNUserNotificationCenterDelegate>
 
 @property UNNotificationSettings* cachedNotificationSettings;
@@ -23,11 +21,10 @@
 @property NSArray<UNNotificationRequest *> * cachedPendingNotificationRequests;
 @property NSArray<UNNotification *> * cachedDeliveredNotifications;
 
-@property (nonatomic) UNNotification* lastReceivedNotification;
+@property BOOL launchedWithNotification;
+@property UNNotification* lastReceivedNotification;
 @property NSString* lastRespondedNotificationAction;
 @property NSString* lastRespondedNotificationUserText;
-
-@property UNNotificationPresentationOptions remoteNotificationForegroundPresentationOptions;
 
 + (instancetype)sharedInstance;
 
@@ -38,6 +35,7 @@
 - (void)updateDeliveredNotificationList;
 - (void)updateNotificationSettings;
 - (void)requestAuthorization:(NSInteger)authorizationOptions withRegisterRemote:(BOOL)registerRemote forRequest:(void*)request;
+- (void)unregisterForRemoteNotifications;
 - (void)scheduleLocalNotification:(iOSNotificationData*)data;
 
 @end

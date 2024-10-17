@@ -91,13 +91,12 @@ namespace Unity.Notifications.Tests.Sample
         IEnumerator StartRoutine()
         {
             // on app launch (not resume) notifications don't arrive immediately
-            // so in Start of the fisrt scene GetLastRespondedNotification may return null, wait a couple of frames
-            yield return null;
-            yield return null;
             // in case a killed app was launched by clicking a notification
-            iOSNotification notification = iOSNotificationCenter.GetLastRespondedNotification();
-            string lastAction = iOSNotificationCenter.GetLastRespondedNotificationAction();
-            string lastTextInput = iOSNotificationCenter.GetLastRespondedNotificationUserText();
+            var op = iOSNotificationCenter.QueryLastRespondedNotification();
+            yield return op;
+            iOSNotification notification = op.Notification;
+            string lastAction = op.ActionId;
+            string lastTextInput = op.UserText;
             RegisterCategories();
             ClearBadge();
             RemoveAllNotifications();
@@ -129,7 +128,8 @@ namespace Unity.Notifications.Tests.Sample
                 .Gray($"isPaused = {isPaused}", 1);
             if (isPaused == false)
             {
-                iOSNotification notification = iOSNotificationCenter.GetLastRespondedNotification();
+                var op = iOSNotificationCenter.QueryLastRespondedNotification();
+                iOSNotification notification = op.Notification;
                 if (notification != null)
                 {
                     m_LOGGER.Green($"Notification found:", 1);
@@ -139,8 +139,8 @@ namespace Unity.Notifications.Tests.Sample
                             .Orange($"[{DateTime.Now.ToString("HH:mm:ss.ffffff")}] Received notification")
                             .Orange($"Setting BADGE to {iOSNotificationCenter.GetDeliveredNotifications().Length + 1}", 1)
                             .Properties(notification, 1);
-                        string lastAction = iOSNotificationCenter.GetLastRespondedNotificationAction();
-                        string lastTextInput = iOSNotificationCenter.GetLastRespondedNotificationUserText();
+                        string lastAction = op.ActionId;
+                        string lastTextInput = op.UserText;
                         if (lastAction != null)
                         {
                             string output = lastTextInput != null ? $"Used action {lastAction} with input '{lastTextInput}'" : $"Used action {lastAction}";
@@ -195,6 +195,11 @@ namespace Unity.Notifications.Tests.Sample
             {
                 StartCoroutine(GetCurrentLocation());
             });
+            m_groups["General"]["Check push registration"] = new Action(() =>
+            {
+                RegisteredForRemoteNotifications();
+            });
+            m_groups["General"]["Unregister push notifications"] = new Action(UnregisterForRemoteNotifications);
             m_groups["General"]["Request Authorization Sound + Badge + Alert"] = new Action(() =>
             {
                 StartCoroutine(RequestAuthorization(AuthorizationOption.Alert | AuthorizationOption.Badge | AuthorizationOption.Sound));
@@ -426,6 +431,20 @@ namespace Unity.Notifications.Tests.Sample
                 // Access granted and location value could be retrieved
                 m_LOGGER.Green("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
             }
+        }
+
+        void RegisteredForRemoteNotifications()
+        {
+            if (AuthorizationRequest.RegisteredForRemoteNotifications)
+                m_LOGGER.Green("App is registered with push notifications");
+            else
+                m_LOGGER.Red("App is not registered with push notifications");
+        }
+
+        void UnregisterForRemoteNotifications()
+        {
+            AuthorizationRequest.UnregisterForRemoteNotifications();
+            m_LOGGER.Gray("Unregisterred for push notifications");
         }
 
         //Request authorization if it is not enabled in Editor UI

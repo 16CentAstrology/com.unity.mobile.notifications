@@ -49,7 +49,7 @@ Android recommends to not use exact scheduling due to higher power consumption i
 
 ## Request permission to post notifications
 
-Starting with Android 13.0 (API level 33) notifications can not be posted without users permission. They can still be scheduled, but will work silently with no UI shown to the user. You can request the permission by running this method in the coroutine:
+Starting with Android 13.0 (API level 33) notifications cannot be posted without user's permission. They can still be scheduled, but will work silently with no UI shown to the user. You can request the permission by running this method in the [coroutine](https://docs.unity3d.com/6000.0/Documentation/Manual/Coroutines.html):
 
 ```c#
 IEnumerator RequestNotificationPermission()
@@ -57,9 +57,11 @@ IEnumerator RequestNotificationPermission()
     var request = new PermissionRequest();
     while (request.Status == PermissionStatus.RequestPending)
         yield return null;
-    // here use request.Status to determine users response
+    // here use request.Status to determine user's response
 }
 ```
+
+The coroutine allows you to asynchronously wait until the user responds to the permission request. You can use `request.Status` to check whether the user has granted or denied the permission and proceed with posting notifications accordingly.
 
 ## Manage notifications
 
@@ -111,7 +113,7 @@ IEnumerator DownloadAndShow(string url)
 
 ### Set icons
 
-You can set a custom icon as a small icon to display for each notification. If you don't specify any small icons, notifications will display the default application icon instead. You can optionally set a large icon which also displays in the notification drawer. You can configure icons in the notification settings; for more information, see [Notification Settings](Settings.html#custom-icons).
+You can set a custom icon as a small icon to display for each notification. If you don't specify any small icons, notifications will display the default application icon instead. You can optionally set a large icon which also displays in the notification drawer. You can configure icons in the notification settings; for more information, see [Notification Settings](Settings.md#custom-icons).
 
 The example below shows how to set the small and large icons with the icon ids you set in the notification settings.
 

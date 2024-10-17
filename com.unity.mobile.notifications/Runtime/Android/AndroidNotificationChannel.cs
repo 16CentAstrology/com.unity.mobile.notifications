@@ -106,7 +106,7 @@ namespace Unity.Notifications.Android
         /// <summary>
         /// Sets whether notifications posted to this channel should display notification lights, on devices that support that feature.
         /// This can be changed by users in the settings app.
-        /// </summary>/
+        /// </summary>
         public bool EnableLights { get; set; }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace Unity.Notifications.Android
         public LockScreenVisibility LockScreenVisibility { get; set; }
 
         /// <summary>
-        /// Returns false if the user has blocked this notification in the settings app. Channels can be manually blocked by settings it's Importance to None.
+        /// Indicates whether a channel is enabled in the Settings app. User can block notifications for the entire app or for individual channels. The Importance of a blocked channel is set to None.
         /// </summary>
         public bool Enabled
         {

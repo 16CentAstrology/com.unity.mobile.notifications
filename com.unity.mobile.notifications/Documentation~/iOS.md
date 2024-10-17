@@ -2,7 +2,7 @@
 
 ## Authorization request
 
-You need to request permissions from the system to send local notifications and receive remote notifications. To do this, use [AuthorizationRequest](../api/Unity.Notifications.iOS.AuthorizationRequest.html). You can request for permissions to only send certain types of notification. The example below shows how to request permissions to display UI Alert dialogs and add a badge on the app icon.
+You need to request permissions from the system to send local notifications and receive remote notifications. To do this, use [AuthorizationRequest](../api/Unity.Notifications.iOS.AuthorizationRequest.html). You can request for permissions to only send certain types of notification. The example below shows how to request permissions to display UI Alert dialogs and add a badge on the app icon. Run this method in a [coroutine](https://docs.unity3d.com/6000.0/Documentation/Manual/Coroutines.html).
 
 ```c#
 IEnumerator RequestAuthorization()
@@ -27,7 +27,7 @@ IEnumerator RequestAuthorization()
 
 You can send the same request again to check the current authorization status. If the user has already granted or denied authorization, the permissions request dialog doesn't display again.
 
-You can also enable an automatic authorization request when the user launches the app. For more details, refer to [notification settings](Settings# request-authorization).
+You can also enable an automatic authorization request when the user launches the app. For more details, refer to [notification settings](Settings.md#request-authorization).
 
 Users might change the authorization status for each notification type at any time in the system settings. You can call [iOSNotificationCenter.GetNotificationSettings](../api/Unity.Notifications.iOS.iOSNotificationCenter.html#Unity_Notifications_iOS_iOSNotificationCenter_GetNotificationSettings) to check the actual authorization status when necessary.
 
@@ -36,7 +36,7 @@ Users might change the authorization status for each notification type at any ti
 A device token is a piece of data that contains a unique identifier assigned by Apple to a specific app on a specific device. If you intend to send push notifications to the users after they confirm the authorization request, you need to retrieve the device token first.
 
 To retrieve the device token, you need to:
-- Enable the **Enable Push Notifications** option in the [notification settings](Settings#enable-push-notifications).
+- Enable the **Enable Push Notifications** option in the [notification settings](Settings.md#enable-push-notifications).
 - Create the authorization request with `registerForRemoteNotifications` set to true.
 
 For more information on how to send push notifications to a device and how to add push notification support to your app, see Apple developer documentation on [handling remote notifications](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1).
@@ -115,7 +115,7 @@ var calendarTrigger = new iOSNotificationCalendarTrigger()
 
 You can also create an [iOSNotificationLocationTrigger](../api/Unity.Notifications.iOS.iOSNotificationLocationTrigger.html) if you want to schedule the delivery of a notification when the device enters or leaves a specific geographic region.
 
-Before you schedule any notifications with this trigger, you need to enable the **Include CoreLocation Framework** option in the [notifications settings](settings.html#include-corelocation-framework). Your app must have authorization to use Core Location and must have when-in-use permissions. You can use the Unity LocationService API to request this authorization.
+Before you schedule any notifications with this trigger, you need to enable the **Include CoreLocation Framework** option in the [notifications settings](Settings.md#include-corelocation-framework). Your app must have authorization to use Core Location and must have when-in-use permissions. You can use the Unity LocationService API to request this authorization.
 For additional information, refer to the [Core Location](https://developer.apple.com/documentation/corelocation/clregion?language=objc) documentation on the Apple Developer website.
 
 In the example below, the center coordinate is defined using the WGS 84 system. The app triggers the notification when the user enters an area within a 250 meter radius around the Eiffel Tower in Paris.
@@ -192,22 +192,27 @@ iOSNotificationCenter.ScheduleNotification(notification);
 The following code example shows how to retrieve the last notification the app received.
 
 ```c#
-var notification = iOSNotificationCenter.GetLastRespondedNotification();
-if (notification != null)
+IEnumerator Start()
 {
-    var msg = "Last Received Notification: " + notification.Identifier;
-    msg += "\n - Notification received: ";
-    msg += "\n - .Title: " + notification.Title;
-    msg += "\n - .Badge: " + notification.Badge;
-    msg += "\n - .Body: " + notification.Body;
-    msg += "\n - .CategoryIdentifier: " + notification.CategoryIdentifier;
-    msg += "\n - .Subtitle: " + notification.Subtitle;
-    msg += "\n - .Data: " + notification.Data;
-    Debug.Log(msg);
+    var query = iOSNotificationCenter.QueryLastRespondedNotification();
+    yield return query;
+    var notification = query.Notification;
+    if (notification != null)
+    {
+        var msg = "Last Received Notification: " + notification.Identifier;
+        msg += "\n - Notification received: ";
+        msg += "\n - .Title: " + notification.Title;
+        msg += "\n - .Badge: " + notification.Badge;
+        msg += "\n - .Body: " + notification.Body;
+        msg += "\n - .CategoryIdentifier: " + notification.CategoryIdentifier;
+        msg += "\n - .Subtitle: " + notification.Subtitle;
+        msg += "\n - .Data: " + notification.Data;
+        Debug.Log(msg);
+    }
 }
 ```
 
-If the user opens the app from a notification, [iOSNotificationCenter.GetLastRespondedNotification](../api/Unity.Notifications.iOS.iOSNotificationCenter.html#Unity_Notifications_iOS_iOSNotificationCenter_GetLastRespondedNotification) also returns that notification. Otherwise, it returns null.
+If the user opens the app from a notification, the delivery of notification might not be instantaneous. [iOSNotificationCenter.QueryLastRespondedNotification](../api/Unity.Notifications.iOS.iOSNotificationCenter.html#Unity_Notifications_iOS_iOSNotificationCenter_QueryLastRespondedNotification) returns an operation that you can use within a coroutine to wait until Unity determines if the application is launched from the notification. The returned operation might complete immediately. You can check its state or use a coroutine. In case of completed operation, the coroutine completes on the next iteration.
 
 #### Set custom data for remote notifications
 
@@ -237,6 +242,4 @@ Images or video can added to notifications by using [attachments](../api/Unity.N
 
 Occasionally, notifications have actions that are registered by notification [category](../api/Unity.Notifications.iOS.iOSNotificationCategory.html) such that notifications with the same category identifier have the registered actions on them.
 
-If you tap a particular action rather than the notification itself, the [iOSNotificationCenter.GetLastRespondedNotificationAction](../api/Unity.Notifications.iOS.iOSNotificationCenter.html#Unity_Notifications_iOS_iOSNotificationCenter_GetLastRespondedNotificationAction) will return the action identifier.
-
-Use the text [input action](../api/Unity.Notifications.iOS.iOSTextInputNotificationAction.html) to prompt the user to type some response text.
+If the user taps a particular action rather than the notification itself, the [QueryLastRespondedNotificationOp](../api/Unity.Notifications.iOS.iOSNotificationCenter.html#Unity_Notifications_iOS_QueryLastRespondedNotificationOp) contains not only the notification but also the action identifier, and in case of text input action, the text entered by the user. Use the text [input action](../api/Unity.Notifications.iOS.iOSTextInputNotificationAction.html) to prompt the user to type some response text.

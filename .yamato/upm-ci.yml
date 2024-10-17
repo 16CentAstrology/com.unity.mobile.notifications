@@ -1,14 +1,13 @@
 test_editors:
   - version: trunk
-  - version: 2023.2
-  - version: 2023.1
+  - version: 6000.0
   - version: 2022.3
   - version: 2021.3
 
 test_platforms:
   - name: mac
     type: Unity::VM::osx
-    image: package-ci/mac:stable
+    image: package-ci/macos-13:v4
     flavor: m1.mac
 
 artifactory:
@@ -23,13 +22,15 @@ pack:
   name: Pack
   agent:
     type: Unity::VM
-    image: package-ci/ubuntu:stable
+    image: package-ci/ubuntu-22.04:v4
     flavor: b1.small
 
   commands:
     - ./add_sample.sh
     - npm install upm-ci-utils@stable -g --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm
     - upm-ci package pack --package-path com.unity.mobile.notifications
+    - upm-pvp xray --packages "upm-ci~/packages/*.tgz" --results upm-ci~/xray
+    - upm-pvp require "supported rme .yamato/xray-exemptions.json" --allow-missing --results upm-ci~/xray
   artifacts:
     packages:
       paths:
@@ -67,7 +68,7 @@ test_Android_{{ editor.version }}:
     flavor: b1.medium
   commands:
     - curl -s {{ utr.url_win }} --output utr.bat
-    - gsudo choco install unity-downloader-cli -y -s https://artifactory.prd.it.unity3d.com/artifactory/api/nuget/unity-choco-local
+    - gsudo choco install unity-downloader-cli -y -s https://artifactory-slo.bf.unity3d.com/artifactory/api/nuget/choco
     - unity-downloader-cli -c Editor -c Android -u {{ editor.version }} --wait --fast
     - utr.bat --testproject=TestProjects\AutomatedTests --editor-location=.Editor --suite=playmode --platform=android --scripting-backend=il2cpp --architecture=arm64 --artifacts_path=upm-ci~/test-results/android --timeout=900  --extra-editor-arg="-upmNoDefaultPackages" --player-save-path=build/players --build-only
     - |

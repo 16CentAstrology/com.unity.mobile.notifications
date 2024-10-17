@@ -15,6 +15,7 @@
 {
     NSLock* _lock;
     UNAuthorizationStatus _remoteNotificationsRegistered;
+    NSInteger _remoteNotificationForegroundPresentationOptions;
     NSString* _deviceToken;
     NSPointerArray* _pendingRemoteAuthRequests;
 }
@@ -39,6 +40,7 @@
     _remoteNotificationsRegistered = UNAuthorizationStatusNotDetermined;
     _deviceToken = nil;
     _pendingRemoteAuthRequests = nil;
+    _remoteNotificationForegroundPresentationOptions = [[[NSBundle mainBundle] objectForInfoDictionaryKey: @"UnityRemoteNotificationForegroundPresentationOptions"] integerValue];
     return self;
 }
 
@@ -79,9 +81,6 @@
 
 - (void)requestAuthorization:(NSInteger)authorizationOptions withRegisterRemote:(BOOL)registerRemote forRequest:(void*)request
 {
-    if (!SYSTEM_VERSION_10_OR_ABOVE)
-        return;
-
     UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
 
     BOOL supportsPushNotification = [[[NSBundle mainBundle] objectForInfoDictionaryKey: @"UnityAddRemoteNotificationCapability"] boolValue];
@@ -124,6 +123,12 @@
     }];
 }
 
+- (void)unregisterForRemoteNotifications
+{
+    [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+    _remoteNotificationsRegistered = UNAuthorizationStatusNotDetermined;
+}
+
 + (NSString*)deviceTokenFromNotification:(NSNotification*)notification
 {
     NSData* deviceTokenData;
@@ -160,8 +165,10 @@
     BOOL showInForeground;
     NSInteger presentationOptions;
 
+    showInForeground = [[notification.request.content.userInfo objectForKey: @"showInForeground"] boolValue];
     if ([notification.request.trigger isKindOfClass: [UNPushNotificationTrigger class]])
     {
+        presentationOptions = _remoteNotificationForegroundPresentationOptions;
         if (self.onRemoteNotificationReceivedCallback != NULL)
         {
             if (!haveNotificationData)
@@ -170,19 +177,16 @@
                 haveNotificationData = YES;
             }
 
-            showInForeground = NO;
             self.onRemoteNotificationReceivedCallback(notificationData);
         }
         else
         {
             showInForeground = YES;
-            presentationOptions = self.remoteNotificationForegroundPresentationOptions;
         }
     }
     else
     {
         presentationOptions = [[notification.request.content.userInfo objectForKey: @"showInForegroundPresentationOptions"] intValue];
-        showInForeground = [[notification.request.content.userInfo objectForKey: @"showInForeground"] boolValue];
     }
 
     if (haveNotificationData)
@@ -318,11 +322,13 @@ bool validateAuthorizationStatus(UnityNotificationManager* manager)
             date.minute = data->trigger.calendar.minute;
         if (data->trigger.calendar.second >= 0)
             date.second = data->trigger.calendar.second;
-        // From C# we get UTC time
+
         date.calendar = [NSCalendar calendarWithIdentifier: NSCalendarIdentifierGregorian];
-        date.timeZone = [NSTimeZone timeZoneWithAbbreviation: @"UTC"];
+        if ([@"1" isEqualToString: [userInfo objectForKey: @"OriginalUtc"]])
+            date.timeZone = [NSTimeZone timeZoneWithAbbreviation: @"UTC"];
 
         trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents: date repeats: data->trigger.calendar.repeats];
+        NSLog(@"Notification will show after %f s.", ((UNCalendarNotificationTrigger*)trigger).nextTriggerDate.timeIntervalSinceNow);
     }
     else if (data->triggerType == LOCATION_TRIGGER)
     {

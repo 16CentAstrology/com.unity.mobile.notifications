@@ -32,6 +32,12 @@ namespace Unity.Notifications.iOS
         private static extern void _RequestAuthorization(IntPtr request, Int32 options, bool registerForRemote);
 
         [DllImport("__Internal")]
+        private static extern int _RegisteredForRemoteNotifications();
+
+        [DllImport("__Internal")]
+        private static extern void _UnregisterForRemoteNotifications();
+
+        [DllImport("__Internal")]
         private static extern void _ScheduleLocalNotification(iOSNotificationData data);
 
         [DllImport("__Internal")]
@@ -68,7 +74,7 @@ namespace Unity.Notifications.iOS
         private static extern Int32 _GetApplicationBadge();
 
         [DllImport("__Internal")]
-        private static extern bool _GetAppOpenedUsingNotification();
+        private static extern Int32 _GetAppOpenedUsingNotification();
 
         [DllImport("__Internal")]
         internal static extern void _RemoveAllDeliveredNotifications();
@@ -232,6 +238,22 @@ namespace Unity.Notifications.iOS
         {
 #if UNITY_IOS && !UNITY_EDITOR
             _RequestAuthorization(request, options, registerRemote);
+#endif
+        }
+
+        public static bool RegisteredForRemoteNotifications()
+        {
+#if UNITY_IOS && !UNITY_EDITOR
+            return _RegisteredForRemoteNotifications() != 0;
+#else
+            return false;
+#endif
+        }
+
+        public static void UnregisterForRemoteNotifications()
+        {
+#if UNITY_IOS && !UNITY_EDITOR
+            _UnregisterForRemoteNotifications();
 #endif
         }
 
@@ -404,7 +426,7 @@ namespace Unity.Notifications.iOS
         public static bool GetAppOpenedUsingNotification()
         {
 #if UNITY_IOS && !UNITY_EDITOR
-            return _GetAppOpenedUsingNotification();
+            return _GetAppOpenedUsingNotification() != 0;
 #else
             return false;
 #endif
@@ -413,21 +435,18 @@ namespace Unity.Notifications.iOS
         public static iOSNotificationWithUserInfo? GetLastNotificationData()
         {
 #if UNITY_IOS && !UNITY_EDITOR
-            if (_GetAppOpenedUsingNotification())
-            {
-                IntPtr ptr = _GetLastNotificationData();
+            IntPtr ptr = _GetLastNotificationData();
 
-                if (ptr != IntPtr.Zero)
-                {
-                    iOSNotificationWithUserInfo data;
-                    data.data = (iOSNotificationData)Marshal.PtrToStructure(ptr, typeof(iOSNotificationData));
-                    data.userInfo = NSDictionaryToCs(data.data.userInfo);
-                    data.data.userInfo = IntPtr.Zero;
-                    data.attachments = AttachmentsNSArrayToCs(data.data.attachments);
-                    data.data.attachments = IntPtr.Zero;
-                    _FreeUnmanagediOSNotificationDataArray(ptr, 1);
-                    return data;
-                }
+            if (ptr != IntPtr.Zero)
+            {
+                iOSNotificationWithUserInfo data;
+                data.data = (iOSNotificationData)Marshal.PtrToStructure(ptr, typeof(iOSNotificationData));
+                data.userInfo = NSDictionaryToCs(data.data.userInfo);
+                data.data.userInfo = IntPtr.Zero;
+                data.attachments = AttachmentsNSArrayToCs(data.data.attachments);
+                data.data.attachments = IntPtr.Zero;
+                _FreeUnmanagediOSNotificationDataArray(ptr, 1);
+                return data;
             }
 #endif
             return null;

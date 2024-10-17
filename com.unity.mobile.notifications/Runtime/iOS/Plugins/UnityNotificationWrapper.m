@@ -57,6 +57,17 @@ void _RequestAuthorization(void* request, int options, BOOL registerRemote)
     center.delegate = manager;
 }
 
+int _RegisteredForRemoteNotifications()
+{
+    return [UIApplication sharedApplication].registeredForRemoteNotifications;
+}
+
+void _UnregisterForRemoteNotifications()
+{
+    UnityNotificationManager* manager = [UnityNotificationManager sharedInstance];
+    [manager unregisterForRemoteNotifications];
+}
+
 void _ScheduleLocalNotification(iOSNotificationData data)
 {
     UnityNotificationManager* manager = [UnityNotificationManager sharedInstance];
@@ -153,10 +164,10 @@ long _GetApplicationBadge()
     return [UIApplication sharedApplication].applicationIconBadgeNumber;
 }
 
-bool _GetAppOpenedUsingNotification()
+int _GetAppOpenedUsingNotification()
 {
     UnityNotificationManager* manager = [UnityNotificationManager sharedInstance];
-    return manager.lastReceivedNotification != NULL;
+    return manager.launchedWithNotification;
 }
 
 iOSNotificationData* _GetLastNotificationData()
