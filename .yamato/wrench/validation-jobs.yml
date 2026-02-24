@@ -62,10 +62,10 @@ validate_-_mobile_notifications_-_2021_3_-_macos13:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
@@ -130,10 +130,10 @@ validate_-_mobile_notifications_-_2021_3_-_ubuntu1804:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
@@ -198,10 +198,10 @@ validate_-_mobile_notifications_-_2021_3_-_win10:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
@@ -266,10 +266,10 @@ validate_-_mobile_notifications_-_2022_3_-_macos13:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
@@ -334,10 +334,10 @@ validate_-_mobile_notifications_-_2022_3_-_ubuntu1804:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
@@ -402,10 +402,10 @@ validate_-_mobile_notifications_-_2022_3_-_win10:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
@@ -470,10 +470,10 @@ validate_-_mobile_notifications_-_6000_0_-_macos13:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
@@ -538,10 +538,10 @@ validate_-_mobile_notifications_-_6000_0_-_ubuntu2204:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
@@ -606,10 +606,10 @@ validate_-_mobile_notifications_-_6000_0_-_win10:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
@@ -674,10 +674,10 @@ validate_-_mobile_notifications_-_6000_3_-_macos13:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
@@ -742,10 +742,10 @@ validate_-_mobile_notifications_-_6000_3_-_ubuntu2204:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
@@ -810,10 +810,10 @@ validate_-_mobile_notifications_-_6000_3_-_win10:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
@@ -878,10 +878,10 @@ validate_-_mobile_notifications_-_6000_4_-_macos13:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
@@ -946,10 +946,10 @@ validate_-_mobile_notifications_-_6000_4_-_ubuntu2204:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
@@ -1014,16 +1014,220 @@ validate_-_mobile_notifications_-_6000_4_-_win10:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
 # PVP Editor and Playmode tests for Validate - mobile.notifications - 6000.5 - macos13 (6000.5 - MacOS).
 validate_-_mobile_notifications_-_6000_5_-_macos13:
   name: Validate - mobile.notifications - 6000.5 - macos13
+  agent:
+    image: package-ci/macos-13:v4
+    type: Unity::VM::osx
+    flavor: b1.large
+  commands:
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
+  - command: 7z x -aoa wrench-localapv.zip
+  - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
+  - command: python PythonScripts/print_machine_info.py
+  - command: unity-downloader-cli -u 6000.5/staging -c editor --path .Editor --fast
+    timeout: 10
+    retries: 3
+  - command: upm-pvp create-test-project test-mobile.notifications --packages "upm-ci~/packages/*.tgz" --filter "com.unity.mobile.notifications com.unity.mobile.notifications.tests" --unity .Editor
+    timeout: 10
+    retries: 1
+  - command: echo No internal packages to add.
+  - command: upm-pvp test --unity .Editor --packages "upm-ci~/packages/*.tgz" --results upm-ci~/pvp
+    timeout: 20
+    retries: 0
+  - command: upm-pvp require "pkgprom-promote -PVP-29-2 rme" --results upm-ci~/pvp --exemptions upm-ci~/pvp/failures.json
+    timeout: 5
+    retries: 0
+  - command: echo No additional PVP profiles to declared to check.
+  - command: 'UnifiedTestRunner --testproject=test-mobile.notifications --editor-location=.Editor --clean-library --reruncount=1 --clean-library-on-rerun --artifacts-path=artifacts --suite=Editor --suite=Playmode "--ff={ops.upmpvpevidence.enable=true}" '
+    timeout: 20
+    retries: 1
+  after:
+  - command: bash .yamato/generated-scripts/infrastructure-instability-detection-mac.sh
+  artifacts:
+    Crash Dumps:
+      paths:
+      - CrashDumps/**
+    packages:
+      paths:
+      - upm-ci~/packages/**/*
+    pvp-results:
+      paths:
+      - upm-ci~/pvp/**/*
+      browsable: onDemand
+    UTR:
+      paths:
+      - '*.log'
+      - '*.xml'
+      - artifacts/**/*
+      - test-mobile.notifications/Logs/**
+      - test-mobile.notifications/Library/*.log
+      - test-mobile.notifications/*.log
+      - test-mobile.notifications/Builds/*.log
+      - build/test-results/**
+      browsable: onDemand
+  dependencies:
+  - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_notifications
+  variables:
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
+  metadata:
+    Job Maintainers: '#rm-packageworks'
+    Wrench: 2.1.2.0
+  labels:
+  - Packages:mobile.notifications
+
+# PVP Editor and Playmode tests for Validate - mobile.notifications - 6000.5 - ubuntu2204 (6000.5 - Ubuntu).
+validate_-_mobile_notifications_-_6000_5_-_ubuntu2204:
+  name: Validate - mobile.notifications - 6000.5 - ubuntu2204
+  agent:
+    image: package-ci/ubuntu-22.04:v4
+    type: Unity::VM
+    flavor: b1.large
+  commands:
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
+  - command: 7z x -aoa wrench-localapv.zip
+  - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
+  - command: python PythonScripts/print_machine_info.py
+  - command: unity-downloader-cli -u 6000.5/staging -c editor --path .Editor --fast
+    timeout: 10
+    retries: 3
+  - command: upm-pvp create-test-project test-mobile.notifications --packages "upm-ci~/packages/*.tgz" --filter "com.unity.mobile.notifications com.unity.mobile.notifications.tests" --unity .Editor
+    timeout: 10
+    retries: 1
+  - command: echo No internal packages to add.
+  - command: upm-pvp test --unity .Editor --packages "upm-ci~/packages/*.tgz" --results upm-ci~/pvp
+    timeout: 20
+    retries: 0
+  - command: upm-pvp require "pkgprom-promote -PVP-29-2 rme" --results upm-ci~/pvp --exemptions upm-ci~/pvp/failures.json
+    timeout: 5
+    retries: 0
+  - command: echo No additional PVP profiles to declared to check.
+  - command: 'UnifiedTestRunner --testproject=test-mobile.notifications --editor-location=.Editor --clean-library --reruncount=1 --clean-library-on-rerun --artifacts-path=artifacts --suite=Editor --suite=Playmode "--ff={ops.upmpvpevidence.enable=true}" '
+    timeout: 20
+    retries: 1
+  after:
+  - command: bash .yamato/generated-scripts/infrastructure-instability-detection-linux.sh
+  artifacts:
+    Crash Dumps:
+      paths:
+      - CrashDumps/**
+    packages:
+      paths:
+      - upm-ci~/packages/**/*
+    pvp-results:
+      paths:
+      - upm-ci~/pvp/**/*
+      browsable: onDemand
+    UTR:
+      paths:
+      - '*.log'
+      - '*.xml'
+      - artifacts/**/*
+      - test-mobile.notifications/Logs/**
+      - test-mobile.notifications/Library/*.log
+      - test-mobile.notifications/*.log
+      - test-mobile.notifications/Builds/*.log
+      - build/test-results/**
+      browsable: onDemand
+  dependencies:
+  - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_notifications
+  variables:
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
+  metadata:
+    Job Maintainers: '#rm-packageworks'
+    Wrench: 2.1.2.0
+  labels:
+  - Packages:mobile.notifications
+
+# PVP Editor and Playmode tests for Validate - mobile.notifications - 6000.5 - win10 (6000.5 - Windows).
+validate_-_mobile_notifications_-_6000_5_-_win10:
+  name: Validate - mobile.notifications - 6000.5 - win10
+  agent:
+    image: package-ci/win10:v4
+    type: Unity::VM
+    flavor: b1.xlarge
+  commands:
+  - command: curl https://artifactory.prd.it.unity3d.com/artifactory/stevedore-unity-internal/wrench-localapv/1-3-0_3978eda62a03e3dbc469ab77590d20f8832032d8e0b586550597b7f590baefec.zip -o wrench-localapv.zip
+  - command: 7z x -aoa wrench-localapv.zip
+  - command: pip install semver requests --index-url https://artifactory-slo.bf.unity3d.com/artifactory/api/pypi/pypi/simple
+  - command: python PythonScripts/print_machine_info.py
+  - command: unity-downloader-cli -u 6000.5/staging -c editor --path .Editor --fast
+    timeout: 10
+    retries: 3
+  - command: upm-pvp create-test-project test-mobile.notifications --packages "upm-ci~/packages/*.tgz" --filter "com.unity.mobile.notifications com.unity.mobile.notifications.tests" --unity .Editor
+    timeout: 10
+    retries: 1
+  - command: echo No internal packages to add.
+  - command: upm-pvp test --unity .Editor --packages "upm-ci~/packages/*.tgz" --results upm-ci~/pvp
+    timeout: 20
+    retries: 0
+  - command: upm-pvp require "pkgprom-promote -PVP-29-2 rme" --results upm-ci~/pvp --exemptions upm-ci~/pvp/failures.json
+    timeout: 5
+    retries: 0
+  - command: echo No additional PVP profiles to declared to check.
+  - command: 'UnifiedTestRunner.exe --testproject=test-mobile.notifications --editor-location=.Editor --clean-library --reruncount=1 --clean-library-on-rerun --artifacts-path=artifacts --suite=Editor --suite=Playmode "--ff={ops.upmpvpevidence.enable=true}" '
+    timeout: 20
+    retries: 1
+  after:
+  - command: .yamato\generated-scripts\infrastructure-instability-detection-win.cmd
+  artifacts:
+    Crash Dumps:
+      paths:
+      - CrashDumps/**
+    packages:
+      paths:
+      - upm-ci~/packages/**/*
+    pvp-results:
+      paths:
+      - upm-ci~/pvp/**/*
+      browsable: onDemand
+    UTR:
+      paths:
+      - '*.log'
+      - '*.xml'
+      - artifacts/**/*
+      - test-mobile.notifications/Logs/**
+      - test-mobile.notifications/Library/*.log
+      - test-mobile.notifications/*.log
+      - test-mobile.notifications/Builds/*.log
+      - build/test-results/**
+      browsable: onDemand
+  dependencies:
+  - path: .yamato/wrench/package-pack-jobs.yml#package_pack_-_mobile_notifications
+  variables:
+    UNITY_LICENSING_SERVER_BASE_URL: http://unity-ci-licenses.hq.unity3d.com:8080/
+    UNITY_LICENSING_SERVER_DELETE_NUL: 0
+    UNITY_LICENSING_SERVER_DELETE_ULF: 0
+    UNITY_LICENSING_SERVER_TOOLSET: pro
+    UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
+  metadata:
+    Job Maintainers: '#rm-packageworks'
+    Wrench: 2.1.2.0
+  labels:
+  - Packages:mobile.notifications
+
+# PVP Editor and Playmode tests for Validate - mobile.notifications - 6000.6 - macos13 (6000.6 - MacOS).
+validate_-_mobile_notifications_-_6000_6_-_macos13:
+  name: Validate - mobile.notifications - 6000.6 - macos13
   agent:
     image: package-ci/macos-13:v4
     type: Unity::VM::osx
@@ -1082,16 +1286,16 @@ validate_-_mobile_notifications_-_6000_5_-_macos13:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
-# PVP Editor and Playmode tests for Validate - mobile.notifications - 6000.5 - ubuntu2204 (6000.5 - Ubuntu).
-validate_-_mobile_notifications_-_6000_5_-_ubuntu2204:
-  name: Validate - mobile.notifications - 6000.5 - ubuntu2204
+# PVP Editor and Playmode tests for Validate - mobile.notifications - 6000.6 - ubuntu2204 (6000.6 - Ubuntu).
+validate_-_mobile_notifications_-_6000_6_-_ubuntu2204:
+  name: Validate - mobile.notifications - 6000.6 - ubuntu2204
   agent:
     image: package-ci/ubuntu-22.04:v4
     type: Unity::VM
@@ -1150,16 +1354,16 @@ validate_-_mobile_notifications_-_6000_5_-_ubuntu2204:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
-# PVP Editor and Playmode tests for Validate - mobile.notifications - 6000.5 - win10 (6000.5 - Windows).
-validate_-_mobile_notifications_-_6000_5_-_win10:
-  name: Validate - mobile.notifications - 6000.5 - win10
+# PVP Editor and Playmode tests for Validate - mobile.notifications - 6000.6 - win10 (6000.6 - Windows).
+validate_-_mobile_notifications_-_6000_6_-_win10:
+  name: Validate - mobile.notifications - 6000.6 - win10
   agent:
     image: package-ci/win10:v4
     type: Unity::VM
@@ -1218,10 +1422,10 @@ validate_-_mobile_notifications_-_6000_5_-_win10:
     UNITY_LICENSING_SERVER_DELETE_ULF: 0
     UNITY_LICENSING_SERVER_TOOLSET: pro
     UPMPVP_ACK_UPMPVP_DOES_NO_API_VALIDATION: 1
-    UPMPVP_CONTEXT_WRENCH: 2.1.1.0
+    UPMPVP_CONTEXT_WRENCH: 2.1.2.0
   metadata:
     Job Maintainers: '#rm-packageworks'
-    Wrench: 2.1.1.0
+    Wrench: 2.1.2.0
   labels:
   - Packages:mobile.notifications
 
